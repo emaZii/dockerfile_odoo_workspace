@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: odoo17_db
+    environment:
+      POSTGRES_DB: zaccariadb
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - /home/emanue/odoo-folder/src17/odoo17dockerizzata/data/db:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"  # porta host diversa per evitare conflitto con Postgres 14
+    restart: unless-stopped
+
+  odoo:
+    build: .
+    user: root
+    image: odoo:17
+    container_name: odoo17_app_zaccaria
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./odoo_data:/var/lib/odoo
+      - /home/emanue/odoo-folder/src17/design-themes-17:/mnt/design-themes
+      - /home/emanue/odoo-folder/src17/enterprise-17.0:/mnt/enterprise
+      - /home/emanue/odoo-folder/src17/zaccaria:/mnt/custom
+      - /home/emanue/odoo-folder/src17/odoo17dockerizzata/config/odoo.conf:/etc/odoo/odoo.conf
+      - /home/emanue/odoo-folder/src17/workspace_zaccaria_dockerizzato:/workspace
+    command: ["odoo", "-c", "/etc/odoo/odoo.conf", "--dev=reload"]
+    restart: unless-stopped

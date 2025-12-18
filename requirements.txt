@@ -1,0 +1,18 @@
+openupgradelib
+xmlschema
+click-odoo
+colorama
+codicefiscale
+python-benedict[xml]
+requests
+sqlparse
+xlsxwriter
+python-benedict[parse]
+pyfcm
+docxtpl
+docxcompose
+html2text
+num2words
+Babel
+htmldocx
+pandas #sh_auto_part_vehicle_custom, importazione di file Excel

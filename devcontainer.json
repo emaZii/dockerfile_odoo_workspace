@@ -1,0 +1,19 @@
+{
+  "name": "Odoo17 Dev",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "odoo",
+  "workspaceFolder": "/mnt/custom",
+  "remoteUser": "root",
+  "extensions": [
+    "ms-python.python",
+    "redhat.vscode-xml"
+  ],
+  "settings": {
+    "python.autoComplete.extraPaths": [
+      "/usr/lib/python3/dist-packages/odoo",
+      "/mnt/custom",
+      "/mnt/enterprise",
+      "/mnt/design-themes"
+    ]
+  }
+}

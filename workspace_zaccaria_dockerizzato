@@ -1,0 +1,159 @@
+{
+	"folders": [
+	{
+		"path": "/var/lib/odoo"
+	},
+	{	"path": "/mnt/enterprise" },
+	{
+		"path": "/mnt/custom"
+	},
+	{
+		"path": "/etc/odoo/odoo.conf"
+	},
+	{
+		"path": "/usr/bin/python3"
+	}
+	],
+	"settings": {
+	"python.defaultInterpreterPath": "/usr/bin/python3",
+	"git.ignoredRepositories": [],
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+		"**/*.pyc": true,
+		"**/__pycache__": true
+	},
+	"python.autoComplete.extraPaths": [
+		"/var/lib/odoo",
+		"/var/lib/odoo/addons",
+		"/mnt/enterprise",
+		"/mnt/custom"
+	],
+	"python.analysis.extraPaths": [
+		"/var/lib/odoo",
+		"/var/lib/odoo/addons",
+		"/mnt/enterprise",
+		"/mnt/custom"
+	],
+	"python.languageServer": "None",
+	"xml.symbols.enabled": false
+	},
+	"launch": {
+	"version": "0.2.0",
+	"configurations": [
+	
+		{
+		"name": "INSTALL",
+		"type": "debugpy",
+		"request": "launch",
+		"stopOnEntry": false,
+		"program": "/var/lib/odoo/odoo-bin",
+		"python": "/usr/bin/python3",
+		"args": [
+			"-c",
+			"/etc/odoo/odoo.conf",
+			"-i",
+			"academy_system",
+			"--dev",
+			"xml",
+			"--stop-after-init"
+		]
+		},
+		{
+		"name": "RUN",
+		"type": "debugpy",
+		"request": "launch",
+		"stopOnEntry": false,
+		"program": "/var/lib/odoo/odoo-bin",
+		"python": "/usr/bin/python3",
+		"args": [
+			"-c",
+			"/etc/odoo/odoo.conf",
+			"--dev",
+			"xml"
+		]
+		},
+		{
+		"name": "UPDATE",
+		"type": "debugpy",
+		"request": "launch",
+		"stopOnEntry": false,
+		"program": "/var/lib/odoo/odoo-bin",
+		"python": "/usr/bin/python3",
+		"args": [
+			"-c",
+			"/etc/odoo/odoo.conf",
+			"-u",
+			"pix_zebra_labels",
+			"--dev",
+			"xml",
+			"--stop-after-init"
+		]
+		},
+		{
+		"name": "TEST",
+		"type": "debugpy",
+		"request": "launch",
+		"stopOnEntry": false,
+		"program": "/var/lib/odoo/odoo-bin",
+		"python": "/usr/bin/python3",
+		"args": [
+			"-c",
+			"/etc/odoo/odoo.conf",
+			"-u",
+			"base",
+			"--test-enable",
+			"--dev",
+			"xml",
+			"--stop-after-init"
+		]
+		},
+		{
+		"name": "SCAFFOLD",
+		"type": "debugpy",
+		"request": "launch",
+		"stopOnEntry": false,
+		"program": "/var/lib/odoo/odoo-bin",
+		"python": "/usr/bin/python3",
+		"justMyCode": true,
+		"args": [
+			"scaffold",
+			"academy_system",
+			"../lab18"
+		]
+		},
+		{
+        "name": "Database Inizialize",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "/var/lib/odoo/odoo-bin",
+		"python": "/usr/bin/python3",
+        "console": "integratedTerminal",
+        "justMyCode": true,
+        "args": [
+            "-c",
+			"/etc/odoo/odoo.conf",
+            "-i", 
+			"base",
+            "--stop-after-init"]
+       },
+		{
+		"name": "ODOO BIN SHELL",
+		"type": "debugpy",
+		"request": "launch",
+		"stopOnEntry": false,
+		"program": "/var/lib/odoo/odoo-bin",
+		"python": "/usr/bin/python3",
+		"args": [
+			"shell",
+			"-c",
+			"/etc/odoo/odoo.conf",
+		]
+		},
+	]
+	}
+}
