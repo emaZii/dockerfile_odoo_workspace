@@ -30,5 +30,9 @@ services:
       - /home/emanue/odoo-folder/src17/zaccaria:/mnt/custom
       - /home/emanue/odoo-folder/src17/odoo17dockerizzata/config/odoo.conf:/etc/odoo/odoo.conf
       - /home/emanue/odoo-folder/src17/workspace_zaccaria_dockerizzato:/workspace
-    command: ["odoo", "-c", "/etc/odoo/odoo.conf", "--dev=reload"]
+    command:
+    - odoo
+    - -c
+    - /etc/odoo/odoo.conf
+    - --dev=all
     restart: unless-stopped
